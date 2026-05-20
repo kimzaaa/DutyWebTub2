@@ -540,3 +540,5 @@ code {
 .ui-toggle:active {
   transform: scale(0.95);
 }
+
+.duty-table tr.today-highlight td { background-color: rgba(204, 236, 241, 0.2); border-top: 2px solid #8cd9f0; border-bottom: 2px solid #93c5ff; }
