@@ -1,11 +1,12 @@
 import React from "react";
-import dutyBase from "./data/dutyBase.json";
 import config from "./data/config.json";
 import { useSchedule, DAYS, TASKS, MS_PER_DAY } from "./hooks/useSchedule";
 import { useBackground } from "./hooks/useBackground";
 import "./styles/App.css";
 
-function App() {
+export default function App({ className, dataset }) {
+  const displayClass = className.replace('-', '/');
+
   const {
     selectedDate,
     currentMonday,
@@ -16,7 +17,7 @@ function App() {
     goToPrevWeek,
     goToNextWeek,
     goToToday,
-  } = useSchedule(dutyBase);
+  } = useSchedule(dataset);
 
   const {
     clickCount,
@@ -55,7 +56,7 @@ function App() {
         onClick={(e) => e.stopPropagation()}
       >
         <header className="app-header">
-          <h1>ตารางเวร 6/2</h1>
+          <h1>ตารางเวร {displayClass}</h1>
           <p className="subtitle">
             By Kimza :DDD
           </p>
@@ -235,5 +236,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
